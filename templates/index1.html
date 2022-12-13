@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></head>
+
+<style>
+.form-label{
+    display: grid;
+  grid-template-columns: auto auto;
+    padding: 10px;
+}
+.label{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    color: black;
+}
+.input{
+    padding: 7%;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+
+.out{
+    display: flex;
+    justify-content: center; 
+    font-family: "Times New Roman", Times, serif;
+    font-size: 50px;
+    color: black; 
+}
+.header{
+    display: flex;
+    justify-content: center; 
+    font-family: "Times New Roman", Times, serif;
+    font-size: 50px;
+    color: black; 
+}
+
+</style>
+
+<body>
+
+<div class="header"><h2>Predictive analysis</h2></div>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="body_form">
+            <div class="form-label">
+
+                <div class="label"> <h3>symboling</h3></div>
+                <div class="input"><input id="first" name="symboling" required="required"></div>
+                
+                <div class="label"> <h3>normalized_losses</h3></div>
+                <div class="input"><input id="second" name="normalized_losses" required="required"></div>
+                
+                
+                
+                
+                
+                
+               
+                
+                <div class="label"><h3>wheel_base</h3></div>
+                <div class="input"><input id="ninth" name="wheel_base" required="required"></div>
+                
+                <div class="label"><h3>length</h3></div>
+                <div class="input"><input id="nenth" name="length" required="required"></div>
+                
+                <div class="label"><h3>width</h3></div>
+                <div class="input"><input id="eleventh" name="width" required="required"></div>
+
+                <div class="label"><h3>height</h3></div>
+                <div class="input"><input id="televe" name="height" required="required"></div>
+
+                <div class="label"><h3>curb_weight</h3></div>
+                <div class="input"><input id="thirteen" name="curb_weight" required="required"></div>
+                
+               
+                
+                
+                
+                <div class="label"><h3>engine_size</h3></div>
+                <div class="input"><input id="sixteen" name="engine_size" required="required"></div>
+                
+                <div class="label"><h3>fuel_system</h3></div>
+                <div class="input"><input id="seventeen" name="fuel_system" required="required"></div>
+                
+                <div class="label"><h3>bore</h3></div>
+                <div class="input"><input id="eighteen" name="bore" required="required"></div>
+                
+                <div class="label"><h3>stroke</h3></div>
+                <div class="input"><input id="twenty" name="stroke" required="required"></div>
+                
+                <div class="label"><h3>compression_ration</h3></div>
+                <div class="input"><input id="twentyone" name="compression_ration" required="required"></div>
+                
+                <div class="label"><h3>horsepower</h3></div>
+                <div class="input"><input id="twentytwo" name="horsepower" required="required"></div>
+                
+                <div class="label"><h3>peak_rpm</h3></div>
+                <div class="input"><input id="twentythree" name="peak_rpm" required="required"></div>
+                
+                <div class="label"><h3>highway_mpg</h3></div>
+                <div class="input"><input id="twentyfour" name="highway_mpg" required="required"></div>
+                
+                <div class="label"> <h3>gas</h3><select name="gas" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="gas">gas</option>
+                        <option value="diesel">diesel</option>
+                    </select>
+                    <p/> 
+                </div>
+                
+                <div class="label"> <h3>drive_wheels</h3><select name="drive_wheels" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="fwd">Front_Wheel_Drive</option>
+                        <option value="rwd">Reverse_Wheel_Drive</option>
+                        <option value="4wd">4x4_Wheel_Drive</option>
+                        
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>Model</h3><select name="make" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="toyota">toyota</option>
+                        <option value="nissan">nissan</option>
+                        <option value="mazda">mazda</option>
+                        <option value="mitsubishi">mitsubishi</option>
+                        <option value="honda">honda</option>
+                        <option value="volkswagen">volkswagen</option>
+                        <option value="subaru">subaru</option>
+                        <option value="peugot">peugot</option>
+                        <option value="volvo">volvo</option>
+                        <option value="dodge">dodge</option>
+                        <option value="mercedes-benz">mercedes-benz</option>
+                        <option value="bmw">bmw</option>
+                        <option value="audi">audi</option>
+                        <option value="plymouth">plymouth</option>
+                        <option value="saab">saab</option>
+                        <option value="porsche">porsche</option>
+                        <option value="isuzu">isuzu</option>
+                        <option value="jaguar">jaguar</option>
+                        <option value="chevrolet">chevrolet</option>
+                        <option value="renault">renault</option>
+                        <option value="alfa-romero">alfa-romero</option>
+                        <option value="mercury">mercury</option>
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>aspiration</h3><select name="aspiration" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="std">std</option>
+                        <option value="turbo">turbo</option>
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>num_of_doors</h3><select name="num_of_doors" id="dropdown" required="required">
+                        <option value=""> </option>   
+                        <option value="four">four</option>
+                        <option value="two">two</option>
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>body_style</h3><select name="body_style" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="sedan">sedan</option>
+                        <option value="hatchback">hatchback</option>
+                        <option value="wagon">wagon</option>
+                        <option value="hardtop">hardtop</option>
+                        <option value="convertible">convertible</option>
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>engine_location</h3><select name="engine_location" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="front">front</option>
+                        <option value="rear">rear</option>
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>engine_type</h3><select name="engine_type" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="ohc">ohc</option>
+                        <option value="ohcf">ohcf</option>
+                        <option value="ohcv">ohcv</option>
+                        <option value="l">l</option>
+                        <option value="dohc">dohc</option>
+                        <option value="rotor">rotor</option>
+                        <option value="dohcv">dohcv</option>
+                    
+                    </select>
+                    <p/> 
+                </div>
+                <div class="label"> <h3>num_of_cylinders</h3><select name="num_of_cylinders" id="dropdown" required="required">
+                        <option value=""> </option>
+                        <option value="two">two</option>
+                        <option value="three">three</option> 
+                        <option value="four">four</option>
+                        <option value="five">five</option>
+                        <option value="six">six</option>
+                        <option value="eight">eight</option>
+                        <option value="twelve">twelve</option>
+                        
+                    
+                    </select>
+                    <p/> 
+                </div>
+            </div>  
+                <div class="btn"><button id="sub" type="submit ">Predict Price of Car</button>
+                </div>
+            </div>
+        </form>
+        <div class="out"><h3>{{pred}}<h3></div>
+
+
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+             
+            
